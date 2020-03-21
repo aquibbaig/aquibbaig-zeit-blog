@@ -1,8 +1,20 @@
 import Head from 'next/head';
 import BasicLayout from '../src/layouts/BasicLayout';
 import matter from 'gray-matter';
+import { useState } from 'react';
 
 const Home = (props) => {
+  const [ latestPost, setLatestPost ] = useState({});
+  const [ posts, setPosts ] = useState([]);
+  const allPosts = props.allBlogPosts;
+  // update state
+  if (posts.length === 0) {
+    setPosts(allPosts.slice(1, allPosts.length));
+  }
+  if (Object.keys(latestPost).length === 0) {
+    setLatestPost(allPosts[0]);
+  }
+
   return (
     <BasicLayout>
       <div className="container">
@@ -132,6 +144,7 @@ export async function getServerSideProps(context) {
       const mdDoc = {
         content: document.content,
         frontmatter: document.data,
+        ...document.data.date && { date: Date.parse(document.data.date) },
       }
       // return the .md content & pretty slug
       return {
@@ -142,9 +155,12 @@ export async function getServerSideProps(context) {
     // return all the posts
     return data;
   })(require.context('../posts', true, /\.md$/));
+  posts.sort(function(a, b){
+    return new Date(b.mdDoc.date) - new Date(a.mdDoc.date);
+  });
   return {
     props: {
-      allBlogs: posts
+      allBlogPosts: posts
     }
   }
 }

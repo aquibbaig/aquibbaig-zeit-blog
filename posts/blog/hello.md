@@ -1,7 +1,7 @@
 ---
 title: The coastal red giants
 author: Watson & Crick
-date: '2019-02-05'
+date: 'March 20, 2020'
 hero_image: ../static/bali-15.jpg
 ---
 
