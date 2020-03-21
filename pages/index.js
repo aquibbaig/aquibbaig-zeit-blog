@@ -2,17 +2,13 @@ import Head from 'next/head';
 import BasicLayout from '../src/layouts/BasicLayout';
 import matter from 'gray-matter';
 import { useState } from 'react';
+import Grid from '@material-ui/core/Grid';
+import { Row, Card, CardActionArea, CardMedia, CardContent, Typography, Link } from '@material-ui/core';
 
 const Home = (props) => {
-  const [ latestPost, setLatestPost ] = useState({});
-  const [ posts, setPosts ] = useState([]);
   const allPosts = props.allBlogPosts;
-  // update state
-  if (posts.length === 0) {
-    setPosts(allPosts.slice(1, allPosts.length));
-  }
-  if (Object.keys(latestPost).length === 0) {
-    setLatestPost(allPosts[0]);
+  function truncateSummary(content) {
+    return content.slice(0, 200).trimEnd();
   }
 
   return (
@@ -24,7 +20,54 @@ const Home = (props) => {
         </Head>
         {/* Content */}
         <main>
-          App
+        <Grid container spacing={3} style={{ height: '30vw' }}>
+          <Grid item xs={12} sm={6}>
+            <Card className="cardroot" style={{ height: '30vw' }}>
+              <Typography style={{ color: 'grey' }} className="category">{allPosts[0].mdDoc.frontmatter.category}</Typography>
+              <CardActionArea>
+                <CardMedia
+                  className="cardmedia"
+                  title="Latest Post"
+                >
+                  <img src="/gsoc.png" />
+                </CardMedia>
+                <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  <Link style={{ color: 'black' }} href={`/blog/${allPosts[0].slug}`}>{allPosts[0].mdDoc.frontmatter.title}</Link>
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  {truncateSummary(allPosts[0].mdDoc.content)}
+                </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} style={{ height: '31vw', overflowY: 'scroll' }}>
+            {allPosts.map((item, index) => (
+              index !== 0 ? (
+                <Card style={{ paddingBottom: '5px' }}>
+                  <Typography style={{ color: 'grey' }} className="category">{item.mdDoc.frontmatter.category}</Typography>
+                  <Card key={index}>
+                    <CardMedia
+                      className="cardmedia"
+                      title="Latest Post">
+                    </CardMedia>
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        <Link style={{ color: 'black' }} href={`/blog/${item.slug}`}>{item.mdDoc.frontmatter.title}</Link>
+                      </Typography>
+                      <Typography variant="body2" color="textSecondary" component="p">
+                        {truncateSummary(item.mdDoc.content)}
+                      </Typography>
+                      </CardContent>
+                  </Card>
+                </Card>
+              ) : (
+                <></>
+              )
+            ))}
+          </Grid>
+        </Grid>
         </main>
         {/* Footer */}
         <footer>
@@ -39,12 +82,22 @@ const Home = (props) => {
 
         <style jsx>{`
           .container {
-            min-height: 100vh;
             padding: 0 0.5rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            flex-grow: 1;
+          }
+
+          .paper: {
+            padding: 10px;
+            text-align: 'center';
+          }
+
+          .cardroot {
+            height: 'auto',
+            max-width: '100%',
           }
 
           main {
@@ -67,6 +120,10 @@ const Home = (props) => {
 
           footer img {
             margin-left: 0.5rem;
+          }
+
+          .link {
+            color: black;
           }
 
           footer a {

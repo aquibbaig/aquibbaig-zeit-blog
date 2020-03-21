@@ -1,6 +1,6 @@
 import matter from 'gray-matter';
-import ReactMarkdown from 'react-markdown';
 import BasicLayout from '../../src/layouts/BasicLayout';
+import Blog from '../../src/components/Blog';
 
 export default (props) => {
   // data from initialProps
@@ -8,12 +8,7 @@ export default (props) => {
   const frontmatter = props.data;
   return (
     <BasicLayout>
-      <article>
-        <h1>{frontmatter.title}</h1>
-        <div>
-          <ReactMarkdown source={markdownBody} />
-        </div>
-      </article>
+      <Blog content={markdownBody} frontmatter={frontmatter}/>
     </BasicLayout>
   )
 }
