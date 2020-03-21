@@ -19,7 +19,7 @@ export default (props) => {
 }
 
 // Gets the props
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const { params: { slug } } = context;
   // grab the file based on the query
   const content = await import(`../../posts/blog/${slug}.md`);
@@ -31,17 +31,4 @@ export async function getStaticProps(context) {
       data: data.data,
     }
   }
-}
-
-export async function getStaticPaths() {
-  return  {
-    paths: [
-      { 
-        params: {
-          slug: 'hello'
-        }
-      }
-    ], 
-    fallback: true
-  };
 }
