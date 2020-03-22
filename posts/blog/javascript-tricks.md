@@ -2,7 +2,7 @@
 title: "How does Javascript really work?"
 date: "December 7, 2019"
 category: "PROGRAMMING"
-image: 'js-tricks'
+image: 'js'
 ---
 
 We tend to think javascript as an on-the-go language for the browsers but deep down it has some dark secrets that will be unveiled. We will have a thorough understanding of how javascript works and what is happening in the background of the browser when you are writing some piece of javascript code, synchronous or asynchronous. 

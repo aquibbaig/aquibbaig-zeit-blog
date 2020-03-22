@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { Mail as MailIcon } from '@material-ui/icons';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
@@ -11,16 +11,18 @@ import Link from '@material-ui/core/Link';
 export default function Navbar() {
   const title = 'Blog';
   const sections = [
-    { title: 'Blog', url: '#' },
-    { title: 'Gear', url: '#' },
-    { title: 'Music', url: '#' },
-    { title: 'About', url: '#' },
+    { title: 'Blog', url: '/' },
+    { title: 'Tech', url: '/tech' },
+    { title: 'Music', url: '/music' },
+    { title: 'About', url: '/about' },
   ];
 
   return (
     <React.Fragment>
       <Toolbar style={{ borderBottom: `1px solid black` }}>
-        <Button size="small">Subscribe</Button>
+        <Button size="small" href="mailto:aquibbaig97@gmail.com">
+          <MailIcon/>
+        </Button>
         <Typography
           component="h2"
           variant="h5"
@@ -29,7 +31,7 @@ export default function Navbar() {
           noWrap
           style={{ flex: 1 }}
         >
-          {title}
+          <Link href="/" style={{ color: 'black' }}>{title}</Link>
         </Typography>
         <IconButton>
           <SearchIcon />
