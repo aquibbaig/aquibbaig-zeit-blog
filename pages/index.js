@@ -1,10 +1,19 @@
 import Head from 'next/head';
+import Router from 'next/router';
+import NProgress from 'nprogress';
 import BasicLayout from '../src/layouts/BasicLayout';
 import AllBlogPosts from '../src/components/AllPosts';
 import LatestPost from '../src/components/LatestPost';
 import matter from 'gray-matter';
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
+
+Router.events.on('routeChangeStart', url => {
+  console.log(`Loading: ${url}`)
+  NProgress.start()
+})
+Router.events.on('routeChangeComplete', () => NProgress.done())
+Router.events.on('routeChangeError', () => NProgress.done())
 
 const Home = (props) => {
   const allPosts = props.allBlogPosts;

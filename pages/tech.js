@@ -6,6 +6,15 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import { useState } from 'react';
 import { Attachment as AttachmentIcon, Loop as LoopIcon } from '@material-ui/icons';
+import Router from 'next/router';
+import NProgress from 'nprogress';
+
+Router.events.on('routeChangeStart', url => {
+  console.log(`Loading: ${url}`)
+  NProgress.start()
+})
+Router.events.on('routeChangeComplete', () => NProgress.done())
+Router.events.on('routeChangeError', () => NProgress.done())
 
 function CardComponent(device, url, image) {
   return (

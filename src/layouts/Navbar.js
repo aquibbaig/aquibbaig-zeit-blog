@@ -14,7 +14,7 @@ export default function Navbar() {
     { title: 'Blog', url: '/' },
     { title: 'Tech', url: '/tech' },
     { title: 'Music', url: '/music' },
-    { title: 'About', url: '/about' },
+    { title: 'Me', url: '/me' },
   ];
 
   return (
