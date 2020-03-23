@@ -20,9 +20,9 @@ export default function Navbar() {
   return (
     <React.Fragment>
       <Toolbar style={{ borderBottom: `1px solid black` }}>
-        <Button size="small" href="mailto:aquibbaig97@gmail.com">
-          <MailIcon/>
-        </Button>
+        <Link href="mailto:aquibbaig97@gmail.com">
+          Mail
+        </Link>
         <Typography
           component="h2"
           variant="h5"
