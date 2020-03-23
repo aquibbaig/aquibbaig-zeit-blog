@@ -14,7 +14,7 @@ export default (props) => {
             <ReactPlayer url={`${song.url}`} style={{ maxWidth: '100%', height: '100%' }} />
           </CardMedia>
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography gutterBottom variant="h5" component="h2" style={{ color: '#039be5'}}>
               {song.artist}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">

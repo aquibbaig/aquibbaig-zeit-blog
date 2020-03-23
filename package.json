@@ -17,7 +17,6 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-markdown": "^4.3.1",
-    "react-material-timeline": "^3.0.1",
     "react-player": "^1.15.2"
   },
   "devDependencies": {}

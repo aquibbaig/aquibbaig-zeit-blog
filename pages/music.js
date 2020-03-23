@@ -21,16 +21,16 @@ const songsList = [
     url: 'https://www.youtube.com/watch?v=HrxX9TBj2zY'
   },
   {
-    artist: 'LSD (Labrinth, Sia, Diplo)',
-    track: 'Thunderclouds',
-    url: 'https://www.youtube.com/watch?v=kg1BljLu9YY',
-    description: 'LSD'
+    artist: 'Pink Floyd',
+    track: 'Shine On You Crazy Diamond (Full Length: Parts I - IX)',
+    url: 'https://www.youtube.com/watch?v=8UXircX3VdM',
+    description: 'Pink Floyd'
   },
   {
-    artist: 'Coldplay',
-    track: 'Paradise',
-    url: 'https://www.youtube.com/watch?v=1G4isv_Fylg',
-    description: 'Coldplay'
+    artist: 'Pink Floyd',
+    track: 'Time',
+    url: 'https://www.youtube.com/watch?v=lke-uABclNk',
+    description: 'Pink Floyd'
   }
 ]
 

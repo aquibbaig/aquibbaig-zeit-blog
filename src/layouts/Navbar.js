@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <React.Fragment>
       <Toolbar style={{ borderBottom: `1px solid black` }}>
-        <Link href="mailto:aquibbaig97@gmail.com">
+        <Link href="mailto:aquibbaig97@gmail.com" style={{ color: 'black' }}>
           Mail
         </Link>
         <Typography

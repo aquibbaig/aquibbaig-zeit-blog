@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { CssBaseline, Container } from '@material-ui/core';
+import { CssBaseline, Container, Typography } from '@material-ui/core';
 
 export default (props) => {
   const { content, frontmatter } = props;
@@ -11,7 +11,9 @@ export default (props) => {
     <Fragment>
       <CssBaseline/>
       <Container maxWidth="sm">
-        {frontmatter.title}
+        <Typography component="h2" variant="h2" style={{ color: '#039be5'}}>
+          {frontmatter.title}
+        </Typography>
         <ReactMarkdown source={content} renderers={{image: Image}} />
       </Container>
     </Fragment>
