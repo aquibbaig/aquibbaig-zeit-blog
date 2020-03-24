@@ -11,7 +11,7 @@ export default (props) => {
     <Fragment>
       <CssBaseline/>
       <Container maxWidth="sm">
-        <Typography component="h2" variant="h2" style={{ color: '#039be5'}}>
+        <Typography component="h5" variant="h5" style={{ color: '#039be5'}}>
           {frontmatter.title}
         </Typography>
         <ReactMarkdown source={content} renderers={{image: Image}} />
